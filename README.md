@@ -13,3 +13,4 @@ Listed files include:
 4. A link to the gtk theme I use: https://www.gnome-look.org/p/2278411
 5. Fastfetch conf and the custom ascii art files I rotate through
 6. And finally my wallpaper
+BTW the assets, scripts, and themes folders go in the /home/name/.config/waybar directory. (same with config and style.css ofc) 
