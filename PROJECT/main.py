@@ -20,9 +20,11 @@ console.print("   Use the configs from https://github.com/tersellers91/dots/tree
 space(1)
 
 console.print("Do you want to delete xfce4? \nYES or NO", style="purple bold")
-delete_xfce = input()
+delete_xfce = input().upper()
 console.print("Do you want to delete Artix Icons?\nYES or NO", style="purple bold")
-delete_artix_icons = input()
+delete_artix_icons = input().upper()
+console.print("Do you want to replace your display manager with SDDM?\nYES or NO", style="purple bold")
+sddm = input().upper()
 
 
 
@@ -35,11 +37,12 @@ elif delete_artix_icons == 'YES':
     time.sleep(0.5)
     os.system("sudo pacman -Rcns --noconfirm artix-icons")
 
+
 space(2)
 console.print("CONTINUING", style="purple bold")
 space(2)
 
-os.system("sudo pacman -S --noconfirm git base-devel alacritty awww waybar xorg-xwayland python-pywal rofi pipewire wireplumber brightnessctl")
+os.system("sudo pacman -S --noconfirm git base-devel alacritty awww waybar xorg-xwayland python-pywal rofi pipewire wireplumber brightnessctl wget")
 os.system("mkdir ~/Build; cd ~/Build; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si")
 os.system("yay -S librewolf-bin")
 
@@ -51,10 +54,14 @@ os.system("yay -S mangowm")
 os.system("cd; cd Build; git clone https://github.com/tersellers91/dots.git")
 os.system("cd ~/Build/dots/PROJECT/; cp -r waybar ~/.config/; cp -r mango ~/.config/")
 space(2)
-
 console.print("CLEANING UP", style="purple bold")
 space(1)
 os.system("yay -Yc")
 space(1)
+elif sddm == 'YES':
+    console.print("Installing SDDM.", style="purple bold")
+    os.system("sudo pacman -Rcns --noconfirm lightdm-runit")
+    os.system("sudo pacman -S --noconfirm sddm-runit")
+    os.system("sudo ln -s /etc/runit/sv/sddm /run/runit/service")
 console.print("DONE", style="purple bold")
 
