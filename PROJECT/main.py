@@ -1,4 +1,4 @@
-import subprocess
+import os
 import pyfiglet
 import time
 from rich.console import Console
@@ -29,32 +29,32 @@ delete_artix_icons = input()
 if delete_xfce == 'YES':
     console.print("Deleting xfce.")
     time.sleep(0.5)
-    subprocess.run(["./setup.sh", "1"])
-    #console.print("Deleting xfce.\r", end="")
-    #time.sleep(0.5)
-    #console.print("Deleting xfce..\r", end="")
-    #time.sleep(0.5)
-    #console.print("Deleting xfce...\r", end="")
-    #time.sleep(0.5)
-elif delete_artix_icons = 'YES':
+    os.system("sudo pacman -Rcns --noconfirm xfce4 xfconf xfce4-goodies libxfce4ui libxfce4util exo")
+elif delete_artix_icons == 'YES':
     console.print("Deleting Artix Icons.")
     time.sleep(0.5)
-    subprocess.run(["./remove.sh", "1"])
-else:
-    subprocess.run(["./setup.sh"])
+    os.system("sudo pacman -Rcns --noconfirm artix-icons")
 
 space(2)
 console.print("CONTINUING", style="purple bold")
 space(2)
 
-subprocess.run(["./yay.sh"])
-
-subprocess.run(["./config.sh"])
+os.system("sudo pacman -S --noconfirm git base-devel alacritty awww waybar xorg-xwayland python-pywal rofi")
+os.system("mkdir ~/Build; cd ~/Build; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si")
+os.system("yay -S librewolf-bin")
 
 space(2)
+console.print("INSTALLING MANGOWM", style="purple bold")
+space(2)
 
-console.print(("DONE", style="purple bold")
+os.system("yay -S mangowm")
+os.system("cd; cd Build; git clone https://github.com/tersellers91/dots.git")
+os.system("cd ~/Build/dots/PROJECT/; cp -r waybar ~/.config/; cp -r mango ~/.config/")
+space(2)
 
-
-
+console.print("CLEANING UP", style="purple bold")
+space(1)
+os.system("yay -Yc")
+space(1)
+console.print("DONE", style="purple bold")
 
