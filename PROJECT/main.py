@@ -42,7 +42,7 @@ space(2)
 console.print("CONTINUING", style="purple bold")
 space(2)
 
-os.system("sudo pacman -S --noconfirm git base-devel alacritty awww waybar xorg-xwayland python-pywal rofi pipewire wireplumber brightnessctl wget")
+os.system("sudo pacman -S --noconfirm git base-devel alacritty awww waybar xorg-xwayland python-pywal rofi brightnessctl wget otf-codenewroman-nerd pulseaudio")
 os.system("mkdir ~/Build; cd ~/Build; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si")
 os.system("yay -S librewolf-bin")
 
