@@ -58,7 +58,7 @@ console.print("CLEANING UP", style="purple bold")
 space(1)
 os.system("yay -Yc")
 space(1)
-elif sddm == 'YES':
+if sddm == 'YES':
     console.print("Installing SDDM.", style="purple bold")
     os.system("sudo pacman -Rcns --noconfirm lightdm-runit")
     os.system("sudo pacman -S --noconfirm sddm-runit")
