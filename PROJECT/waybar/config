@@ -4,7 +4,7 @@
         "reload_style_on_change": true,
         "modules-left": ["clock","custom/pacman","tray"],
         "modules-center": ["ext/workspaces"],
-        "modules-right": ["group/expand","wireplumber","network","battery"],
+        "modules-right": ["group/expand","pulseaudio","network","battery"],
 
 	
 	
